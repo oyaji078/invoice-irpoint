@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice {{ invoice.invoiceId }}</title>
+  <style>
+  {{ invoice_css }}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="brand">
+        {% if seller.logoUrl %}
+        <img class="logo" src="{{ seller.logoUrl }}" alt="Logo" />
+        {% endif %}
+        <div>
+          <h1>{{ seller.storeName }}</h1>
+          <div class="muted">{{ seller.sellerName }}</div>
+          <div class="muted">{{ seller.email }} · {{ seller.phone }}</div>
+          <div class="muted">{{ seller.address }}</div>
+        </div>
+      </div> 
+      <div class="invoice-panel">
+        <div class="panel-title">Invoice</div>
+        <div class="panel-row">
+          <span>Invoice No</span>
+          <strong>{{ invoice.invoiceId }}</strong>
+        </div>
+        <div class="panel-row">
+          <span>Tanggal</span>
+          <strong>{{ format_date(invoice.date) }}</strong>
+        </div>
+        <div class="panel-divider"></div>
+        <div class="panel-subtitle">Bill To</div>
+        <div class="panel-info">
+          <span class="panel-label">Customer</span>
+          <span class="panel-value">{{ invoice.customer.customerName }}</span>
+        </div>
+        {% if invoice.customer.customerPhone %}
+        <div class="panel-info">
+          <span class="panel-label">Telepon</span>
+          <span class="panel-value">{{ invoice.customer.customerPhone }}</span>
+        </div>
+        {% endif %}
+        {% if invoice.customer.customerAddress %}
+        <div class="panel-info">
+          <span class="panel-label">Alamat</span>
+          <span class="panel-value">{{ invoice.customer.customerAddress }}</span>
+        </div>
+        {% endif %}
+      </div>
+    </header>
+
+    <section class="items">
+      <table class="items-table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama Item</th>
+            <th class="num">Qty</th>
+            <th class="num">Harga</th>
+            <th class="num">Diskon</th>
+            <th class="num">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for line in view.lines %}
+          <tr>
+            <td>{{ line.no }}</td>
+            <td>
+              <div class="item-name">{{ line.name }}</div>
+            </td>
+            <td class="num">{{ line.qty }}</td>
+            <td class="num">{{ format_idr(line.unitPrice) }}</td>
+            <td class="num">{{ format_idr(line.discount) }}</td>
+            <td class="num">{{ format_idr(line.lineTotal) }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+
+    <section class="summary">
+      <div class="summary-box">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong>{{ format_idr(view.summary.subtotal) }}</strong>
+        </div>
+        <div class="summary-row">
+          <span>Diskon</span>
+          <strong>{{ format_idr(view.summary.totalDiscount) }}</strong>
+        </div>
+        <div class="summary-row total">
+          <span>Grand Total</span>
+          <strong>{{ format_idr(view.summary.grandTotal) }}</strong>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer {% if not invoice.notes %}single{% endif %}">
+      <div class="footer-left">
+        {% if invoice.notes %}
+        <div class="footer-block">
+          <div class="section-title">Catatan</div>
+          <div class="muted">{{ invoice.notes }}</div>
+        </div>
+        {% endif %}
+      </div>
+      <div class="footer-right">
+        <div class="section-title">Informasi Pembayaran</div>
+        {% if invoice.paymentMethod %}
+        <div class="pay-row">
+          <span class="pay-label">Metode :</span>
+          <span class="pay-value">{{ invoice.paymentMethod.label }}</span>
+        </div>
+        {% if invoice.paymentMethod.methodType and invoice.paymentMethod.methodType != 'cash' %}
+        {% if invoice.paymentMethod.accountNumber %}
+        <div class="pay-row">
+          <span class="pay-label">No. Rek/ID :</span>
+          <span class="pay-value">{{ invoice.paymentMethod.accountNumber }}</span>
+        </div>
+        {% endif %}
+        {% if invoice.paymentMethod.accountName %}
+        <div class="pay-row">
+          <span class="pay-label">Atas Nama :</span>
+          <span class="pay-value">{{ invoice.paymentMethod.accountName }}</span>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% if invoice.paymentMethod.details %}
+        <div class="pay-row pay-notes">
+          <span class="pay-label">Info</span>
+          <span class="pay-value">{{ invoice.paymentMethod.details }}</span>
+        </div>
+        {% endif %}
+        {% else %}
+        <div class="pay-row">
+          <span class="pay-label">Metode</span>
+          <span class="pay-value">Tunai</span>
+        </div>
+        {% endif %}
+      </div>
+      <div class="thanks">Terima kasih atas kerja samanya.</div>
+    </footer>
+  </div>
+</body>
+</html>

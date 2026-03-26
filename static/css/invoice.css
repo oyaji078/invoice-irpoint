@@ -1,0 +1,404 @@
+﻿@page {
+  size: A4;
+  margin: 12mm;
+}
+
+:root {
+  --text: #1f2937;
+  --muted: #010408;
+  --border: #e5e7eb;
+  --accent: #111827;
+  --bg: #f9fafb;
+  --brand: #f04b2a;
+  --brand-soft: #ffe8e1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  background: #f3f4f6;
+  font-size: 23px;
+  line-height: 1.4;
+}
+
+.page {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 18mm 14mm 14mm;
+  background: #fff;
+  border-top: 6px solid #111827;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #111827;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.logo {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: none;
+  background: #fff;
+  margin-top: 2mm;
+}
+
+h1 {
+  margin: 0;
+  font-size: 23px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13.5px;
+  margin-top: 4px;
+}
+
+.invoice-panel {
+  min-width: 0;
+  flex: 1 1 190px;
+  border: 2px solid #111827;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: transparent;
+}
+
+.panel-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 17px;
+}
+
+.panel-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.status {
+  text-transform: uppercase;
+}
+
+.panel-divider {
+  height: 1px;
+  background: #111827;
+  opacity: 0.25;
+  margin: 8px 0;
+}
+
+.panel-subtitle {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.panel-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.panel-info:last-child {
+  margin-bottom: 0;
+}
+
+.panel-label {
+  min-width: 86px;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: none;
+}
+
+.panel-value {
+  flex: 1;
+  text-align: right;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  word-break: break-word;
+}
+
+.bill-to {
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 12.5px;
+}
+
+.bill-card {
+  border: 1px solid var(--brand);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fff;
+}
+
+.bill-name {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  margin-bottom: 12px;
+}
+
+.items-table thead {
+  background: transparent;
+}
+
+.items-table th,
+.items-table td {
+  border: 1px solid #111827;
+  padding: 6px 8px;
+  vertical-align: top;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.items-table th {
+  color: #111827;
+  font-weight: 700;
+}
+
+.items-table tbody tr:nth-child(even) {
+  background: transparent;
+}
+
+.item-name {
+  font-weight: 700;
+}
+
+.item-desc {
+  color: var(--muted);
+  margin-top: 4px;
+  font-size: 11.5px;
+}
+
+.num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.summary {
+  display: flex;
+  justify-content: stretch;
+  margin-top: 6px;
+}
+
+.summary-box {
+  width: 100%;
+  border: 2px solid #111827;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fff;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 13.5px;
+}
+
+.summary-row.total {
+  font-size: 16px;
+  font-weight: 700;
+  border-top: 2px solid #111827;
+  padding-top: 8px;
+  margin-top: 6px;
+  color: #111827;
+}
+
+.label {
+  font-weight: 600;
+  color: #111827;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-top: 2px solid #111827;
+  margin-top: 14px;
+  padding-top: 12px;
+}
+
+.footer-left,
+.footer-right {
+  flex: 1 1 260px;
+}
+
+.footer.single .footer-left {
+  display: none;
+}
+
+.footer.single .footer-right {
+  flex: 1 1 100%;
+}
+
+.footer-block {
+  margin-bottom: 8px;
+}
+
+.pay-strong {
+  font-weight: 700;
+  font-size: 1.02em;
+  color: #111827;
+}
+
+.pay-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 4px;
+  font-size: 20px;
+}
+
+.pay-label {
+  min-width: 120px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.pay-value {
+  flex: 1;
+  text-align: right;
+  font-weight: 700;
+  color: #111827;
+}
+
+.pay-row.pay-notes .pay-value {
+  text-align: left;
+  font-weight: 600;
+}
+
+.thanks {
+  margin-top: 10px;
+  font-weight: 700;
+  color: var(--brand);
+  text-align: center;
+  flex-basis: 100%;
+}
+
+@media print {
+  :root {
+    --border: #9ca3af;
+  }
+  body {
+    background: #fff;
+    font-size: 17.5px;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  .muted {
+    font-size: 14px;
+  }
+  .panel-row {
+    font-size: 14px;
+  }
+  .panel-subtitle {
+    font-size: 12.5px;
+  }
+  .panel-info {
+    font-size: 13.5px;
+  }
+  .items-table {
+    font-size: 14px;
+  }
+  .summary-row {
+    font-size: 14px;
+  }
+  .summary-row.total {
+    font-size: 17px;
+  }
+  .page {
+    padding: 6mm 0 0;
+    margin: 0;
+  }
+  .items-table thead {
+    display: table-header-group;
+  }
+  tr {
+    page-break-inside: avoid;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 12mm 8mm;
+  }
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .brand,
+  .invoice-panel {
+    width: 100%;
+  }
+  .panel-row {
+    font-size: 13px;
+  }
+  .panel-subtitle {
+    font-size: 12px;
+  }
+  .panel-info {
+    font-size: 13px;
+  }
+  .muted {
+    font-size: 13px;
+  }
+  .items {
+    overflow-x: auto;
+  }
+  .items-table {
+    min-width: 520px;
+    font-size: 13px;
+  }
+  .items-table th,
+  .items-table td {
+    padding: 8px 10px;
+  }
+  .summary-row {
+    font-size: 13px;
+  }
+  .summary-row.total {
+    font-size: 15px;
+  }
+  .footer {
+    flex-direction: column;
+  }
+}

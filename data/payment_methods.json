@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Tunai",
+    "methodType": "cash",
+    "accountNumber": null,
+    "accountName": null,
+    "details": null
+  },
+  {
+    "label": "SeaBank",
+    "methodType": "ewallet",
+    "accountNumber": "081907711124",
+    "accountName": "M IRLAN YUNIARDI",
+    "details": null
+  },
+  {
+    "label": "DANA",
+    "methodType": "ewallet",
+    "accountNumber": "081907711124",
+    "accountName": "M IRLAN YUNIARDI",
+    "details": null
+  },
+  {
+    "label": "BSI",
+    "methodType": "bank",
+    "accountNumber": "7220592574",
+    "accountName": "M IRLAN YUNIARDI",
+    "details": null
+  }
+]

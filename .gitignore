@@ -1,0 +1,13 @@
+.vscode/
+
+.venv/
+.venv_backup_*/
+__pycache__/
+*.py[cod]
+
+*.log
+run_app.log
+
+.env
+.pytest_cache/
+.mypy_cache/

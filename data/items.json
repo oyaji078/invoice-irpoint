@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ITEM-001",
+    "name": "Kopi Arabica 250gr",
+    "sku": "KOPI-ARA-250",
+    "unit": "pcs",
+    "price": 65000,
+    "taxRate": 11
+  },
+  {
+    "id": "ITEM-002",
+    "name": "Kopi Robusta 250gr",
+    "sku": "KOPI-ROB-250",
+    "unit": "pcs",
+    "price": 55000,
+    "taxRate": 11
+  },
+  {
+    "id": "ITEM-003",
+    "name": "Cold Brew 1L",
+    "sku": "COLD-1L",
+    "unit": "botol",
+    "price": 95000,
+    "taxRate": 11
+  }
+]

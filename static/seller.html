@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seller Profile</title>
+  <link rel="stylesheet" href="/static/css/main.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">Invoice Generator</div>
+      <nav class="nav">
+        <a href="index.html">Dashboard</a>
+        <a href="seller.html" class="active">Seller Profile</a>
+        <a href="invoices.html">Invoices</a>
+      </nav>
+    </aside>
+    <main class="content">
+      <div class="page-header">
+        <div>
+          <h1>Seller Profile</h1>
+          <div class="subtle">Lengkapi data penjual untuk ditampilkan di invoice.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <form id="sellerForm">
+          <div class="grid-2">
+            <div>
+              <label>Nama Toko</label>
+              <input type="text" name="storeName" required />
+            </div>
+            <div>
+              <label>Nama Penjual</label>
+              <input type="text" name="sellerName" required />
+            </div>
+            <div>
+              <label>Email</label>
+              <input type="email" name="email" />
+            </div>
+            <div>
+              <label>Telepon</label>
+              <input type="text" name="phone" required />
+            </div>
+          </div>
+          <div style="margin-top:16px;">
+            <label>Alamat</label>
+            <textarea name="address" required></textarea>
+          </div>
+          <div class="grid-2" style="margin-top:16px;">
+            <div>
+              <label>Logo Seller (upload)</label>
+              <input type="file" name="logoFile" accept="image/*" />
+              <div id="logoPreview" class="logo-preview"></div>
+              <label style="margin-top:10px;">Logo URL (opsional)</label>
+              <input type="text" name="logoUrl" placeholder="https://..." />
+            </div>
+          </div>
+          <div style="margin-top:16px;">
+            <div class="section-title">Metode Pembayaran</div>
+            <div class="grid-3">
+              <div>
+                <label>Nama Metode</label>
+                <input type="text" name="paymentLabel" placeholder="Tunai / Transfer / QRIS" />
+              </div>
+              <div>
+                <label>Jenis</label>
+                <select name="paymentType">
+                  <option value="cash">Tunai</option>
+                  <option value="bank">Bank</option>
+                  <option value="ewallet">E-Wallet</option>
+                  <option value="other">Lainnya</option>
+                </select>
+              </div>
+              <div>
+                <label>Detail (opsional)</label>
+                <input type="text" name="paymentDetails" placeholder="Catatan tambahan" />
+              </div>
+            </div>
+            <div id="paymentExtra" class="grid-2 payment-extra" style="margin-top:10px;">
+              <div>
+                <label>No. Rek / ID</label>
+                <input type="text" name="paymentAccountNumber" placeholder="0812xxxx / 1234567890" />
+              </div>
+              <div>
+                <label>Atas Nama</label>
+                <input type="text" name="paymentAccountName" placeholder="Nama pemilik rekening" />
+              </div>
+            </div>
+            <div class="actions" style="margin-top:10px;">
+              <button type="button" class="ghost" id="addPayment">Tambah Metode</button>
+            </div>
+            <div id="paymentList" class="payment-list"></div>
+          </div>
+          <div style="margin-top:16px;" class="actions">
+            <button type="submit">Simpan Profil</button>
+            <span id="sellerToast" class="toast"></span>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+  <script src="/static/js/app.js"></script>
+  <script src="/static/js/seller.js"></script>
+</body>
+</html>

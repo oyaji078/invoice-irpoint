@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice Generator</title>
+  <link rel="stylesheet" href="/static/css/main.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">Invoice Generator</div>
+      <nav class="nav">
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="seller.html">Seller Profile</a>
+        <a href="invoices.html">Invoices</a>
+      </nav>
+    </aside>
+    <main class="content">
+      <div class="page-header">
+        <div>
+          <h1>Dashboard</h1>
+          <div class="subtle">Ringkasan singkat untuk memulai membuat invoice profesional.</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Seller Profile</h3>
+          <p class="subtle">Lengkapi identitas penjual agar invoice terlihat kredibel.</p>
+          <a class="badge" href="seller.html">Atur Profil</a>
+        </div>
+        <div class="card">
+          <h3>Invoice</h3>
+          <p class="subtle">Buat invoice baru, preview, dan export PDF.</p>
+          <a class="badge" href="invoices.html">Buat Invoice</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="page-header" style="margin-bottom:12px;">
+          <div>
+            <h3>Daftar Invoice</h3>
+            <div class="subtle">Cari invoice dan lihat data terbaru (urut terbaru dulu).</div>
+          </div>
+        </div>
+        <div class="actions" style="margin-bottom:12px;">
+          <input type="text" id="dashboardInvoiceSearch" placeholder="Cari invoice / customer" />
+          <button class="ghost" id="dashboardInvoiceSearchBtn">Cari</button>
+          <span id="dashboardInvoiceToast" class="toast"></span>
+        </div>
+        <table class="table" id="dashboardInvoiceTable">
+          <thead>
+            <tr>
+              <th>Invoice</th>
+              <th>Tanggal</th>
+              <th>Pelanggan</th>
+              <th>Total</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>Tips</h3>
+        <ul>
+          <li>Pastikan data seller dan rekening bank sudah terisi.</li>
+          <li>Gunakan diskon persen untuk promo, dan diskon nominal untuk potongan tetap.</li>
+          <li>Set status invoice agar follow-up pembayaran lebih mudah.</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+  <script src="/static/js/app.js"></script>
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

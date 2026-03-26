@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Items</title>
+  <link rel="stylesheet" href="/static/css/main.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">Invoice Generator</div>
+      <nav class="nav">
+        <a href="index.html">Dashboard</a>
+        <a href="seller.html">Seller Profile</a>
+        <a href="items.html" class="active">Items</a>
+        <a href="invoices.html">Invoices</a>
+      </nav>
+    </aside>
+    <main class="content">
+      <div class="page-header">
+        <div>
+          <h1>Master Items</h1>
+          <div class="subtle">Kelola barang atau jasa yang akan ditagihkan.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="actions" style="margin-bottom:12px;">
+          <input type="text" id="searchInput" placeholder="Cari nama / SKU / ID" />
+          <button class="ghost" id="searchBtn">Cari</button>
+          <span id="itemsToast" class="toast"></span>
+        </div>
+        <table class="table" id="itemsTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>SKU</th>
+              <th>Unit</th>
+              <th>Harga</th>
+              <th>Pajak</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3 id="formTitle">Tambah Item</h3>
+        <form id="itemForm">
+          <div class="grid-2">
+            <div>
+              <label>ID (opsional)</label>
+              <input type="text" name="id" placeholder="ITEM-001" />
+            </div>
+            <div>
+              <label>Nama</label>
+              <input type="text" name="name" required />
+            </div>
+            <div>
+              <label>SKU</label>
+              <input type="text" name="sku" />
+            </div>
+            <div>
+              <label>Unit</label>
+              <input type="text" name="unit" required />
+            </div>
+            <div>
+              <label>Harga</label>
+              <input type="number" name="price" required />
+            </div>
+            <div>
+              <label>Pajak (%)</label>
+              <input type="number" name="taxRate" value="0" />
+            </div>
+          </div>
+          <div class="actions" style="margin-top:16px;">
+            <button type="submit">Simpan</button>
+            <button type="button" class="ghost" id="cancelEdit">Batal</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+  <script src="/static/js/app.js"></script>
+  <script src="/static/js/items.js"></script>
+</body>
+</html>

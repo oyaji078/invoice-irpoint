@@ -1,0 +1,34 @@
+[
+  {
+    "invoiceId": "PIR-202602-0001",
+    "invoiceType": "penjualan",
+    "date": "2026-02-16",
+    "customer": {
+      "customerName": "NIA",
+      "customerPhone": "087781707644",
+      "customerAddress": "-"
+    },
+    "items": [
+      {
+        "name": "CapCut Pro 2B",
+        "qty": 1,
+        "unitPrice": 53000.0,
+        "discount": 0.0
+      }
+    ],
+    "paymentMethod": {
+      "label": "DANA",
+      "methodType": "ewallet",
+      "accountNumber": "081907711124",
+      "accountName": "M IRLAN YUNIARDI",
+      "details": null
+    },
+    "notes": "-",
+    "status": "Sent",
+    "summary": {
+      "subtotal": 53000.0,
+      "totalDiscount": 0.0,
+      "grandTotal": 53000.0
+    }
+  }
+]

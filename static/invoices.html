@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoices</title>
+  <link rel="stylesheet" href="/static/css/main.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">Invoice Generator</div>
+      <nav class="nav">
+        <a href="index.html">Dashboard</a>
+        <a href="seller.html">Seller Profile</a>
+        <a href="invoices.html" class="active">Invoices</a>
+      </nav>
+    </aside>
+    <main class="content">
+      <div class="page-header">
+        <div>
+          <h1>Invoices</h1>
+          <div class="subtle">Buat invoice baru, preview, dan export PDF.</div>
+        </div>
+        <span id="invoiceToast" class="toast"></span>
+      </div>
+
+      <div class="invoice-layout">
+        <div class="card">
+          <h3 id="invoiceFormTitle">Buat Invoice</h3>
+          <div class="subtle" style="margin:6px 0 14px;">
+            Kode invoice otomatis: PIR (penjualan), SIR (service), GIR (gabungan) dengan format YYYYMM-####.
+          </div>
+          <form id="invoiceForm">
+          <div class="grid-2">
+            <div>
+              <label>Tanggal</label>
+              <input type="date" name="date" required />
+            </div>
+            <div>
+              <label>Jenis Invoice</label>
+              <select name="invoiceType">
+                <option value="penjualan">Penjualan</option>
+                <option value="service">Service</option>
+                <option value="gabungan">Gabungan</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid-2" style="margin-top:16px;">
+            <div>
+              <label>Nama Customer</label>
+              <input type="text" name="customerName" required />
+            </div>
+            <div>
+              <label>Telepon Customer</label>
+              <input type="text" name="customerPhone" />
+            </div>
+            <div>
+              <label>Alamat Customer</label>
+              <input type="text" name="customerAddress" />
+            </div>
+          </div>
+          <div class="grid-2" style="margin-top:16px;">
+            <div>
+              <label>Metode Pembayaran</label>
+              <select name="paymentMethod" id="paymentMethodSelect"></select>
+              <div id="paymentMethodDetails" class="subtle" style="margin-top:6px;"></div>
+              <button type="button" class="ghost" id="refreshPayment" style="margin-top:8px;">Muat Ulang Metode</button>
+            </div>
+          </div>
+
+            <div style="margin-top:16px;">
+              <div class="section-title">Items</div>
+              <div class="item-header row-grid">
+                <div>Nama Item</div>
+                <div>Qty</div>
+                <div>Harga</div>
+                <div>Diskon</div>
+                <div>Aksi</div>
+              </div>
+              <div id="itemRows" class="item-rows"></div>
+              <button type="button" class="ghost" id="addRow" style="margin-top:10px;">Tambah Item</button>
+            </div>
+
+            <div class="grid-2" style="margin-top:16px;">
+              <div>
+                <label>Catatan</label>
+                <textarea name="notes"></textarea>
+              </div>
+            </div>
+
+            <div class="actions" style="margin-top:16px;">
+              <button type="submit">Simpan Invoice</button>
+              <button type="button" class="ghost" id="cancelInvoiceEdit">Batal</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card preview-card">
+          <h3>Preview Invoice</h3>
+          <div class="subtle" style="margin:6px 0 14px;">Preview otomatis dari data yang kamu isi.</div>
+          <iframe id="inlinePreview" class="preview-frame"></iframe>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/js/app.js"></script>
+  <script src="/static/js/invoices.js"></script>
+</body>
+</html>
